@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<configuration>
+  <appSettings>
+    <add key="template" value="//
+//  #SHEET_NAME#   表格名
+//
+//  #PARAM_DEF# 定义结构体参数
+//  #DATA_DEF#  初始化表格数据
+//  #PAIR_DEF# 定义每个参数数据 需要在#DATA_DEF#定义内
+using System;
+public struct ES_#SHEET_NAME#
+{
+	#PARAM_DEF#
+	public {0} {1};
+	#PARAM_END#
+};
+
+public partial class  ESSheet
+{
+    private static ES_#SHEET_NAME#[] _#SHEET_NAME# = null;
+    public static ES_#SHEET_NAME#[] F#SHEET_NAME#
+    {
+        get
+        {
+            if (_#SHEET_NAME#==null)
+            {
+                _#SHEET_NAME# = new ES_#SHEET_NAME#[] 
+				{ 
+				   #DATA_DEF# new ES_#SHEET_NAME# { #PAIR_DEF#{0}={1}#PAIR_END# }, #DATA_END#
+				};
+            }
+            return _#SHEET_NAME#;
+        }
+    }
+};" />
+  </appSettings>
+</configuration>
